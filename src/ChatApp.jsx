@@ -7,4 +7,4 @@ function ChatApp() {
   )
 }
 
-export default App
+export default ChatApp
