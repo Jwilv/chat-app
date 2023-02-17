@@ -4,7 +4,8 @@ html, body {
 }
 
 img {
-    max-width: 100%;
+    max-width: 50px;
+    border-radius: 25px;
 }
 
 .inbox_people {
@@ -25,6 +26,8 @@ img {
 .top_spac {
     margin: 20px 0 0;
 }
+
+/* #566573  */
 
 .recent_heading {
     float: left;
@@ -105,7 +108,6 @@ img {
 }
 
 .chat_list {
-    border-bottom: 1px solid #c4c4c4;
     cursor: pointer;
     margin: 0;
     padding: 18px 16px 10px;
@@ -233,4 +235,8 @@ textarea {
     right: 0;
     width: 60%;
     text-align: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
