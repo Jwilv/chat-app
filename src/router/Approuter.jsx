@@ -8,7 +8,7 @@ import { AuthRouter } from './AuthRouter'
 export const Approuter = () => {
     return (
         <Routes>
-            <Route path='/auth' element={<AuthRouter />} />
+            <Route path='/auth/*' element={<AuthRouter />} />
             <Route path='/' element={<ChatPage />} />
         </Routes>
     )

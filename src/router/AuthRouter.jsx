@@ -12,8 +12,8 @@ export const AuthRouter = () => {
             <div className="container-login100">
                 <div className="wrap-login100 p-t-50 p-b-90">
                     <Routes>
-                        <Route exact path="/auth/login" element={<LoginPage />} />
-                        <Route exact path="/auth/register" element={<RegisterPage />} />
+                        <Route  path="/login" element={<LoginPage />} />
+                        <Route  path="/register" element={<RegisterPage />} />
                     </Routes>
                 </div>
             </div>
