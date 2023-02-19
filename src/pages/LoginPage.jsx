@@ -15,6 +15,18 @@ export const LoginPage = () => {
 
     const { email, password, rememberme } = values;
 
+    const handleCheck = ()=>{
+
+        const payload ={
+            target:{
+                name:'rememberme',
+                value: !rememberme
+            }
+        }
+
+        handleInputChanGet(payload);
+    }
+
     return (
         <form 
             className="login100-form validate-form flex-sb flex-w"
@@ -43,6 +55,8 @@ export const LoginPage = () => {
                     name="password"
                     placeholder="Password"
                     autoComplete='off'
+                    value={password}
+                    onChange={ handleInputChanGet }
                 />
                 <span className="focus-input100"></span>
             </div>
@@ -50,12 +64,14 @@ export const LoginPage = () => {
             <div className="row mb-3">
                 <div 
                     className="col"
+                    onClick={()=>handleCheck(rememberme)}
                 >
                     <input
                         className="input-checkbox100"
                         id="ckb1"
                         type="checkbox"
                         name="rememberme" 
+                        checked={rememberme}
                         readOnly
                     />
                     <label className="label-checkbox100">
