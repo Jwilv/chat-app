@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from '../hooks/UseForm';
 
@@ -7,7 +7,7 @@ import { useForm } from '../hooks/UseForm';
 export const LoginPage = () => {
 
     const initialForm = {
-        email: 'test1@test.com',
+        email: 'test2@test.com',
         password: '123456',
         rememberme: false
     }
@@ -21,6 +21,17 @@ export const LoginPage = () => {
             rememberme : !rememberme
         })
     }
+
+    useEffect(()=>{
+        const email = localStorage.getItem('email')
+        if( email ){
+            setValues({
+                ...values,
+                rememberme: true,
+                email
+            })
+        }
+    }, [])
 
     const handleLogin = (event)=>{
         event.preventDefault();
