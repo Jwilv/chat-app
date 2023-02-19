@@ -11,20 +11,15 @@ export const LoginPage = () => {
         password: '123456',
         rememberme: false
     }
-    const [ values, handleInputChanGet] = useForm(initialForm);
+    const [ values, setValues, handleInputChanGet] = useForm(initialForm);
 
     const { email, password, rememberme } = values;
 
     const handleCheck = ()=>{
-
-        const payload ={
-            target:{
-                name:'rememberme',
-                value: !rememberme
-            }
-        }
-
-        handleInputChanGet(payload);
+        setValues({
+            ...values,
+            rememberme : !rememberme
+        })
     }
 
     const handleLogin = (event)=>{
