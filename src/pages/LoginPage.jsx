@@ -29,7 +29,10 @@ export const LoginPage = () => {
 
     const handleLogin = (event)=>{
         event.preventDefault();
-        console.log(values);
+        (rememberme)
+            ? localStorage.setItem('email', email)
+            : localStorage.removeItem('email')
+            
     }
 
     return (
