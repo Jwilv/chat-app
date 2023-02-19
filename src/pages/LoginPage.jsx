@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../auth/AuthContext';
 import { useForm } from '../hooks/UseForm';
 
 
 
 export const LoginPage = () => {
+
+    const { login } = useContext(AuthContext);
 
     const initialForm = {
         email: 'test2@test.com',
@@ -33,12 +36,13 @@ export const LoginPage = () => {
         }
     }, [])
 
-    const handleLogin = (event)=>{
+    const handleLogin = async(event)=>{
         event.preventDefault();
         (rememberme)
             ? localStorage.setItem('email', email)
             : localStorage.removeItem('email')
             
+            await login(email,password);
     }
 
     return (

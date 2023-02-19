@@ -1,20 +1,25 @@
-const baseUrl = process.env.REACT_APP_URL_BASE;
 
-const fetchWithoToken = async( endpoint, data, method = 'GET' )=>{
+const baseUrl = import.meta.env.VITE_APP_API_URL
 
-    const url = `${baseUrl}/${endpoint}`;
-    
-    if(method === 'GET'){
-        const response = await fetch(url);
-        return await response.json();
-    }else{
-        const response = await fetch(url,{
-            method,
-            headers:{
-                'Content-type':'application/json'
+export const fetchWithoToken = async( endpoint, data, method = 'GET' ) => {
+
+    const url = `${ baseUrl }/${ endpoint }`;
+
+    if ( method === 'GET' ) {
+        const resp = await fetch( url );
+        return await resp.json();
+    } else {
+        const resp = await fetch( url, {
+            method : method,
+            headers: {
+                'Content-type': 'application/json'
             },
-            body:data,
+            body: JSON.stringify( data )
         })
-        return await response.json();
+
+        const body = await resp.json();
+
+        return await body
     }
+
 }
