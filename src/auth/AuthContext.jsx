@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     const [ auth, setAuth ] = useState(initialState)
 
     const login = async( email, password ) => {
-
+        const response = await fetchWithoToken('login', {email, password}, 'POST');
     }
 
     const register = async(nombre, email, password) => {
