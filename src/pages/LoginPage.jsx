@@ -1,9 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from '../hooks/UseForm';
 
 
 
 export const LoginPage = () => {
+
+    const initialForm = {
+        email: 'test1@test.com',
+        password: '123456',
+        rememberme: false
+    }
+    const [ values, handleInputChanGet] = useForm(initialForm);
+
+    const { email, password, rememberme } = values;
 
     return (
         <form 
@@ -19,6 +29,8 @@ export const LoginPage = () => {
                     type="email"
                     name="email"
                     placeholder="Email"
+                    value={email}
+                    onChange={ handleInputChanGet }
                 />
                 <span className="focus-input100"></span>
             </div>
