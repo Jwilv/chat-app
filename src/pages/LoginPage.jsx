@@ -27,9 +27,15 @@ export const LoginPage = () => {
         handleInputChanGet(payload);
     }
 
+    const handleLogin = (event)=>{
+        event.preventDefault();
+        console.log(values);
+    }
+
     return (
         <form 
             className="login100-form validate-form flex-sb flex-w"
+            onSubmit={handleLogin}
         >
             <span className="login100-form-title mb-3">
                 Chat - Ingreso
