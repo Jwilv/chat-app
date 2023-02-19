@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const verificaToken = useCallback( async() => {
-        
+
     }, [])
 
     const logout = () => {
