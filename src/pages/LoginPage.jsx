@@ -73,7 +73,7 @@ export const LoginPage = () => {
             <div className="row mb-3">
                 <div 
                     className="col"
-                    onClick={()=>handleCheck(rememberme)}
+                    onClick={handleCheck}
                 >
                     <input
                         className="input-checkbox100"
