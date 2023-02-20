@@ -14,10 +14,15 @@ export const useSocket = (serverPath) => {
 
     const connectSocket = useCallback(() => {
 
+        const token = localStorage.getItem('x-token')
+
         const socketTemp = io(serverPath, {
             transports: ['websocket'],
             autoConnect:true,
             forceNew:true,
+            query:{
+                'x-token':token
+            }
         })
 
         setSocket(socketTemp);
