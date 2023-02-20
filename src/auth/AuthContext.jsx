@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
         return resp.msg;
     }
 
-    const verificaToken = useCallback( async() => {
+    const validateToken = useCallback( async() => {
 
     }, [])
 
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
             auth,
             login,
             register,
-            verificaToken,
+            validateToken,
             logout,
         }}>
             { children }
