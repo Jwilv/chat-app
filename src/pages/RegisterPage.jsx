@@ -9,12 +9,12 @@ export const RegisterPage = () => {
         name:'',
         email:'',
         password:'',
-        passwordConfirm:'',
+        confirmPassword:'',
     }
 
     const [values, setValues, handleInputChanGet] = useForm(initialState);
 
-    const { name, email, password, passwordConfirm} = values;
+    const { name, email, password, confirmPassword} = values;
 
     const handleSubmit = (event)=>{
         event.preventDefault();;
@@ -71,9 +71,9 @@ export const RegisterPage = () => {
                 <input
                     className="input100"
                     type="password"
-                    name="password"
+                    name="confirmPassword"
                     placeholder="confirm Password" 
-                    value={passwordConfirm}
+                    value={confirmPassword}
                     onChange={ handleInputChanGet}
                     autoComplete='off'                />
                 <span className="focus-input100"></span>
