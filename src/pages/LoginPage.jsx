@@ -27,7 +27,7 @@ export const LoginPage = () => {
     }
 
     const validValues = ()=>{
-        return (email.length > 0 && password.length >= 6)
+        return (email.length > 0 && password.length >= 6) ? true : false 
     }
 
     useEffect(()=>{
@@ -118,6 +118,7 @@ export const LoginPage = () => {
                 <button 
                     type="submit"
                     className="login100-form-btn"
+                    disabled={ !validValues() }
                 >
                     Ingresar
                 </button>
