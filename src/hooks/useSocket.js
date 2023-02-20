@@ -22,7 +22,10 @@ export const useSocket = (serverPath) => {
 
     }, [serverPath]);
 
-    
+    const disconnectSocket = useCallback(() => {
+        socket?.disconnect();
+
+    }, [socket])
 
     useEffect(() => {
         setOnline(socket?.connected);
@@ -44,6 +47,7 @@ export const useSocket = (serverPath) => {
         socket,
         online,
         connectSocket,
+        disconnectSocket,
     }
 
 }
