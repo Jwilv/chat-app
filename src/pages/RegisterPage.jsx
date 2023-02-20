@@ -10,10 +10,10 @@ export const RegisterPage = () => {
     const { register } = useContext(AuthContext);
 
     const initialState = {
-        name:'',
-        email:'',
-        password:'',
-        confirmPassword:'',
+        name:'test4',
+        email:'test4@gmail.com',
+        password:'123456',
+        confirmPassword:'123456',
     }
 
     const [values, setValues, handleInputChanGet] = useForm(initialState);
@@ -32,8 +32,10 @@ export const RegisterPage = () => {
             return Swal.fire('Error','las contraseñas deben ser iguales','error');
         }
 
-        const ok = await register(name, email, password)
-        console.log(ok);
+        const msg = await register(name, email, password)
+        if( msg !== true){
+            return Swal.fire('Error',msg,'error');
+        }
     }
 
     return (

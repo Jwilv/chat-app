@@ -50,10 +50,12 @@ export const AuthProvider = ({ children }) => {
                 email,
                 checking:false,
                 logged:true, 
-            })
+            });
+
+            return true;
         }
 
-        return resp.ok;
+        return resp.msg;
     }
 
     const verificaToken = useCallback( async() => {
