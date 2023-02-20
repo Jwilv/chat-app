@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../auth/AuthContext';
 import { useForm } from '../hooks/UseForm';
 
 
 export const RegisterPage = () => {
+
+    const { register } = useContext(AuthContext);
 
     const initialState = {
         name:'',
@@ -16,8 +20,19 @@ export const RegisterPage = () => {
 
     const { name, email, password, confirmPassword} = values;
 
-    const handleSubmit = (event)=>{
-        event.preventDefault();;
+    const handleSubmit = async(event)=>{
+        event.preventDefault();
+        if(name.length < 4){
+            return Swal.fire('Error','el nombre debe ser de 4 caracteres minimo','error');
+        }
+        if( password.length < 6 ){
+            return Swal.fire('Error','la contraseña debe ser de 6 caracteres minimo','error');
+        }
+        if(password !== confirmPassword){
+            return Swal.fire('Error','las contraseñas deben ser iguales','error');
+        }
+
+        const ok = await register()
     }
 
     return (
