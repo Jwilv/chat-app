@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 
 export const RegisterPage = () => {
 
+    const handleSubmit = (event)=>{
+        event.preventDefault();;
+    }
+
     return (
         <form 
             className="login100-form validate-form flex-sb flex-w"
+            onSubmit={ handleSubmit }
         >
             <span className="login100-form-title mb-3">
                 Chat - Registro
