@@ -26,6 +26,10 @@ export const LoginPage = () => {
         })
     }
 
+    const validValues = ()=>{
+        return (email.length > 0 && password.length >= 6)
+    }
+
     useEffect(()=>{
         const email = localStorage.getItem('email')
         if( email ){
