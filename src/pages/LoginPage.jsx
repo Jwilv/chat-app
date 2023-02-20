@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../auth/AuthContext';
 import { useForm } from '../hooks/UseForm';
 
@@ -42,7 +43,11 @@ export const LoginPage = () => {
             ? localStorage.setItem('email', email)
             : localStorage.removeItem('email')
             
-            await login(email,password);
+            const ok = await login(email,password);
+
+            if(!ok){
+                Swal.fire('Error', 'verifique el usuario y contraseña','error')
+            }
     }
 
     return (
