@@ -14,7 +14,7 @@ export const useSocket = (serverPath) => {
 
     const connectSocket = useCallback(() => {
 
-        const token = localStorage.getItem('x-token')
+        const token = localStorage.getItem('token')
 
         const socketTemp = io(serverPath, {
             transports: ['websocket'],
