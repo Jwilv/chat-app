@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from '../hooks/UseForm';
 
 
 export const RegisterPage = () => {
+
+    const initialState = {
+        name:'',
+        email:'',
+        password:'',
+        passwordConfirm:'',
+    }
+
+    const [values, setValues, handleInputChanGet] = useForm()
 
     const handleSubmit = (event)=>{
         event.preventDefault();;
@@ -45,6 +55,16 @@ export const RegisterPage = () => {
                     type="password"
                     name="password"
                     placeholder="Password" 
+                    autoComplete='off'                />
+                <span className="focus-input100"></span>
+            </div>
+
+            <div className="wrap-input100 validate-input mb-3">
+                <input
+                    className="input100"
+                    type="password"
+                    name="password"
+                    placeholder="confirm Password" 
                     autoComplete='off'                />
                 <span className="focus-input100"></span>
             </div>
