@@ -15,7 +15,9 @@ export const useSocket = (serverPath) => {
     const connectSocket = useCallback(() => {
 
         const socketTemp = io(serverPath, {
-            transports: ['websocket']
+            transports: ['websocket'],
+            autoConnect:true,
+            forceNew:true,
         })
 
         setSocket(socketTemp);
