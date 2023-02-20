@@ -32,7 +32,8 @@ export const RegisterPage = () => {
             return Swal.fire('Error','las contraseñas deben ser iguales','error');
         }
 
-        const ok = await register()
+        const ok = await register(name, email, password)
+        console.log(ok);
     }
 
     return (
