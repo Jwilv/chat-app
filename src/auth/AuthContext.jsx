@@ -37,8 +37,8 @@ export const AuthProvider = ({ children }) => {
 
     }
 
-    const register = async(nombre, email, password) => {
-        const resp = await fetchWithoToken('login/new', {nombre,email,password}, 'POST');
+    const register = async(name, email, password) => {
+        const resp = await fetchWithoToken('login/new', {name,email,password}, 'POST');
         if( resp.ok ){
             localStorage.setItem('token', resp.token);
             const {id, name, email} = resp;
