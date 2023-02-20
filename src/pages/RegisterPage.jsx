@@ -12,7 +12,9 @@ export const RegisterPage = () => {
         passwordConfirm:'',
     }
 
-    const [values, setValues, handleInputChanGet] = useForm()
+    const [values, setValues, handleInputChanGet] = useForm(initialState);
+
+    const { name, email, password, passwordConfirm} = values;
 
     const handleSubmit = (event)=>{
         event.preventDefault();;
@@ -33,6 +35,8 @@ export const RegisterPage = () => {
                     type="text"
                     name="name"
                     placeholder="Nombre" 
+                    value={name}
+                    onChange={ handleInputChanGet}
                 />
                 <span className="focus-input100"></span>
             </div>
@@ -44,6 +48,8 @@ export const RegisterPage = () => {
                     type="email"
                     name="email"
                     placeholder="Email" 
+                    value={email}
+                    onChange={ handleInputChanGet}
                 />
                 <span className="focus-input100"></span>
             </div>
@@ -54,7 +60,9 @@ export const RegisterPage = () => {
                     className="input100"
                     type="password"
                     name="password"
-                    placeholder="Password" 
+                    placeholder="Password"
+                    value={password}
+                    onChange={ handleInputChanGet} 
                     autoComplete='off'                />
                 <span className="focus-input100"></span>
             </div>
@@ -65,6 +73,8 @@ export const RegisterPage = () => {
                     type="password"
                     name="password"
                     placeholder="confirm Password" 
+                    value={passwordConfirm}
+                    onChange={ handleInputChanGet}
                     autoComplete='off'                />
                 <span className="focus-input100"></span>
             </div>
