@@ -38,7 +38,22 @@ export const AuthProvider = ({ children }) => {
     }
 
     const register = async(nombre, email, password) => {
+        const resp = await fetchWithoToken('login/new', {nombre,email,password}, 'POST');
+        if( resp.ok ){
+            localStorage.setItem('token', resp.token);
+            const {id, name, email} = resp;
 
+            setAuth({
+                ...auth,
+                uid: id,
+                name,
+                email,
+                checking:false,
+                logged:true, 
+            })
+        }
+
+        return resp.ok;
     }
 
     const verificaToken = useCallback( async() => {
