@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
         const resp = await fetchToken('login/renew');
         if( resp.ok ){
             localStorage.setItem('token', resp.token);
-            const {id, name, email} = resp;
+            const {id, name, email} = resp.user;
 
             setAuth({
                 uid: id,
