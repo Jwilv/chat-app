@@ -1,4 +1,5 @@
-import React, { createContext } from "react";
+import React, { createContext, useReducer } from "react";
+import { ChatReducer } from "./ChatReducer";
 
 const initialState = {
     uid:'',
@@ -11,11 +12,15 @@ const initialState = {
 export const ChatContext = createContext();
 
 export const ChatProvider = ({ children }) => {
-    <ChatContext.Provider
+
+const [chatState, dispatch] = useReducer(ChatReducer, initialState)
+
+    return(<ChatContext.Provider
     value={{
-        meg:'hola mindo'
+        chatState,
+        dispatch,
     }}
     >
         {children}
-    </ChatContext.Provider>
+    </ChatContext.Provider>)
 }
