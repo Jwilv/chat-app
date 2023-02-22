@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { AuthContext } from '../auth/AuthContext';
 import { useSocket } from '../hooks/useSocket';
+import { ChatContext } from './chat/ChatContext';
 
 
 export const SocketContext = createContext();
@@ -9,6 +10,8 @@ export const SocketContext = createContext();
 export const SocketProvider = ({ children }) => {
 
     const { socket, online, connectSocket, disconnectSocket } = useSocket('http://localhost:5050');
+
+    const {dispatch} = useContext(ChatContext);
 
     const {auth} = useContext(AuthContext);
 
@@ -28,7 +31,10 @@ export const SocketProvider = ({ children }) => {
 
     useEffect( ()=>{
         socket?.on('list-users', (users)=>{
-            console.log(users);
+            dispatch({
+                type:'getUsers',
+                payload:users,
+            })
         })
     }, [socket]);
 
