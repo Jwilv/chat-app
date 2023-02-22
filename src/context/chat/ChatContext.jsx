@@ -1,5 +1,11 @@
 import React, { createContext } from "react";
 
+const initialState = {
+    uid:'',
+    chatActivo:null,
+    mensajes:[],
+    users:[],
+}
 
 
 export const ChatContext = createContext();
