@@ -36,7 +36,7 @@ export const SocketProvider = ({ children }) => {
                 payload:users,
             })
         })
-    }, [socket]);
+    }, [socket,dispatch]);
 
     useEffect( ()=>{
         socket?.on('personal-message',(message)=>{
