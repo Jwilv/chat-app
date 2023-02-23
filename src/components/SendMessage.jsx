@@ -7,12 +7,16 @@ export const SendMessage = () => {
         message:''
     }
 
-    const [values, setValues, handleInputChanGet] = useForm(initialState);
+    const [values, setValues, handleInputChanGet, reset] = useForm(initialState);
 
     const {message} = values;
 
     const handleSubmit = (event)=>{
         event.preventDefault();
+
+        if(message.length === 0){ return; }
+
+        reset();
     }
 
     return (
