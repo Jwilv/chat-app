@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../auth/AuthContext';
+import { ChatContext } from '../context/chat/ChatContext';
 import { SocketContext } from '../context/SocketContext';
 import { useForm } from '../hooks/useForm'
 
@@ -9,7 +10,7 @@ export const SendMessage = () => {
 
     const {auth} = useContext(AuthContext);
 
-    const { chatState, dispatch } = useContext(ChatContext);
+    const { chatState } = useContext(ChatContext);
     const {chatActivo} = chatState
 
     const initialState = {
