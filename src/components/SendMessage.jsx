@@ -1,6 +1,14 @@
 import React from 'react'
+import { useForm } from '../hooks/useForm'
 
 export const SendMessage = () => {
+
+    const initialState = {
+        message:''
+    }
+
+    const [values, setValues, handleInputChanGet] = useForm(initialState);
+    
     return (
         <form>
             <div className="type_msg row">
