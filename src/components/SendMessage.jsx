@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../auth/AuthContext';
+import { SocketContext } from '../context/SocketContext';
 import { useForm } from '../hooks/useForm'
 
 export const SendMessage = () => {
+
+    const {socket} = useContext(SocketContext);
+
+    const {auth} = useContext(AuthContext);
+
+    const { chatState, dispatch } = useContext(ChatContext);
+    const {chatActivo} = chatState
 
     const initialState = {
         message:''
@@ -15,6 +24,12 @@ export const SendMessage = () => {
         event.preventDefault();
 
         if(message.length === 0){ return; }
+
+        socket.emit('personal-message',{
+            de:auth.uid,
+            para:chatActivo,
+            message,
+        })
 
         reset();
     }
