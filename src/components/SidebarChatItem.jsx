@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ChatContext } from '../context/chat/ChatContext'
 
 export const SidebarChatItem = ({user}) => {
+
+    const { dispatch } = useContext(ChatContext);
+
+    const setActive = ()=>{
+        dispatch({
+            type:'setActive',
+            payload:user.id
+        })
+    }
+
     return (
-        <div className="chat_list">
+        <div 
+        className="chat_list"
+        onClick={setActive}
+        
+        >
             {/* active_chat */}
             <div className="chat_people">
                 <div className="chat_img"> 
