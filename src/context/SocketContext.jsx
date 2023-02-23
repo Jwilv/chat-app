@@ -38,6 +38,12 @@ export const SocketProvider = ({ children }) => {
         })
     }, [socket]);
 
+    useEffect( ()=>{
+        socket?.on('personal-message',(payload)=>{
+            
+        });
+    }, [socket])
+
     return (
         <SocketContext.Provider value={{ socket, online }}>
             { children }
