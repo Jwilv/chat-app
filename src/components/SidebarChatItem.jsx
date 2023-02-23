@@ -3,7 +3,8 @@ import { ChatContext } from '../context/chat/ChatContext'
 
 export const SidebarChatItem = ({user}) => {
 
-    const { dispatch } = useContext(ChatContext);
+    const { chatState, dispatch } = useContext(ChatContext);
+    const {chatActivo} = chatState
 
     const setActive = ()=>{
         dispatch({
@@ -14,11 +15,11 @@ export const SidebarChatItem = ({user}) => {
 
     return (
         <div 
-        className="chat_list"
+        className={`chat_list ${ (chatActivo === user.id) && 'active_chat' }`}
         onClick={setActive}
         
         >
-            {/* active_chat */}
+
             <div className="chat_people">
                 <div className="chat_img"> 
                     <img src="https://p.kindpng.com/picc/s/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png" alt="sunil" />
