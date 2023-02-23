@@ -11,8 +11,12 @@ export const SendMessage = () => {
 
     const {message} = values;
 
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="type_msg row">
                 <div className="input_msg_write col-sm-9">
                     <input 
