@@ -18,7 +18,19 @@ export const ChatReducer = (state, action) => {
                 chatActivo: action.payload,
             }
 
-            
+        case 'newMessage':
+            if ((state.chatActivo === action.payload.de) ||
+                (state.chatActivo === action.payload.para)
+            ) {
+                return {
+                    ...state,
+                    mensajes: [...state.mensajes, action.payload]
+                }
+            } else {
+                return state;
+            }
+
+
         default:
             return state;
     }
