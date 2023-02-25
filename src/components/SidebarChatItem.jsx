@@ -14,10 +14,9 @@ export const SidebarChatItem = ({user}) => {
         });
 
         const resp = await fetchToken(`message/${user.id}`);
-
         dispatch({
             type:'updateMessage',
-            payload: resp.message,
+            payload: resp.msg,
         })
         
     }

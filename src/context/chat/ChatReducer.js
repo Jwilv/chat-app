@@ -30,6 +30,12 @@ export const ChatReducer = (state, action) => {
                 return state;
             }
 
+        case 'updateMessage':
+            return{
+                ...state,
+                mensajes:[...action.payload]
+            }
+
 
         default:
             return state;
