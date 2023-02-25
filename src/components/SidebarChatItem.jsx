@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { AuthContext } from '../auth/AuthContext';
 import { ChatContext } from '../context/chat/ChatContext'
 import { fetchToken } from '../helpers/fecht';
 
@@ -15,6 +14,11 @@ export const SidebarChatItem = ({user}) => {
         });
 
         const resp = await fetchToken(`message/${user.id}`);
+
+        dispatch({
+            type:'updateMessage',
+            payload: resp.message,
+        })
         
     }
 
