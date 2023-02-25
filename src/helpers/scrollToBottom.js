@@ -7,3 +7,10 @@ export  const scrollToBotton = (id)=>{
         duration: 0,
     })
 }
+
+export  const scrollToBottonAnimated = (id)=>{
+    animateScroll.scrollToBottom({
+        containerId:'message',
+        duration: 250,
+    })
+}
