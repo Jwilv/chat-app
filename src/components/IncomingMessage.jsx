@@ -12,7 +12,7 @@ export const IncomingMessage = ({message}) => {
             </div>
             <div className="received_msg">
                 <div className="received_withd_msg">
-                    <p>{message.message}</p>
+                    <p className='message' >{message.message}</p>
                     <span className="time_date">{date}</span>
                 </div>
             </div>
