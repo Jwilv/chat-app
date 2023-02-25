@@ -241,3 +241,7 @@ textarea {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.message{
+    word-break: break-all;
+}
