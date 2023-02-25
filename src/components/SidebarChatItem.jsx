@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { scrollToBottom } from '../helpers/scrollToBottom';
 import { ChatContext } from '../context/chat/ChatContext'
 import { fetchToken } from '../helpers/fecht';
 
@@ -19,6 +20,9 @@ export const SidebarChatItem = ({user}) => {
             payload: resp.msg,
         })
         
+        setTimeout(() => {
+            scrollToBottom('message');
+        }, 5);
     }
 
     return (
