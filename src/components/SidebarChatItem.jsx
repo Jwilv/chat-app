@@ -1,16 +1,21 @@
 import React, { useContext } from 'react'
+import { AuthContext } from '../auth/AuthContext';
 import { ChatContext } from '../context/chat/ChatContext'
+import { fetchToken } from '../helpers/fecht';
 
 export const SidebarChatItem = ({user}) => {
 
     const { chatState, dispatch } = useContext(ChatContext);
     const {chatActivo} = chatState
 
-    const setActive = ()=>{
+    const setActive = async()=>{
         dispatch({
             type:'setActive',
             payload:user.id
-        })
+        });
+
+        const resp = await fetchToken(`message/${user.id}`);
+        
     }
 
     return (
