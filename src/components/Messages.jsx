@@ -17,8 +17,8 @@ export const Messages = () => {
 
             {/* <!-- Historia inicio --> */}
             <div 
-            className="msg_history"
             id='message'
+            className="msg_history"
             >
 
                 {

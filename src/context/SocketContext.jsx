@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { AuthContext } from '../auth/AuthContext';
+import { scrollToBotton, scrollToBottonAnimated } from '../helpers/scrollToBottom';
 import { useSocket } from '../hooks/useSocket';
 import { ChatContext } from './chat/ChatContext';
 
@@ -43,7 +44,10 @@ export const SocketProvider = ({ children }) => {
             dispatch({
                 type:'newMessage',
                 payload: message,
-            })
+            });
+            setTimeout(() => {
+                scrollToBottomAnimated('message');
+            }, 10);
         });
     }, [socket])
 
