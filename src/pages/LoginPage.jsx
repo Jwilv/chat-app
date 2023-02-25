@@ -11,8 +11,8 @@ export const LoginPage = () => {
     const { login } = useContext(AuthContext);
 
     const initialForm = {
-        email: 'test2@test.com',
-        password: '123456',
+        email: '',
+        password: '',
         rememberme: false
     }
     const [ values, setValues, handleInputChanGet] = useForm(initialForm);

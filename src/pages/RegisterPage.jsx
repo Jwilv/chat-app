@@ -10,10 +10,10 @@ export const RegisterPage = () => {
     const { register } = useContext(AuthContext);
 
     const initialState = {
-        name:'test4',
-        email:'test4@gmail.com',
-        password:'123456',
-        confirmPassword:'123456',
+        name:'',
+        email:'',
+        password:'',
+        confirmPassword:'',
     }
 
     const [values, setValues, handleInputChanGet] = useForm(initialState);
